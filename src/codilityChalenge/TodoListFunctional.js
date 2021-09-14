@@ -1,96 +1,140 @@
-import React, {useState} from 'react';
-//import classNames from 'classNames';
+import React, {useState} from "react";
 
-export const styles = {
-    counterButton: {
-        fontSize: "1rem",
-        padding: "5px 10px",
-        color: "585858",
-        backgroundColor: "blue",
+const initialValues = [
+    {
+        id: Math.random(),
+        name: "test1",
+        isDone: false,
     },
-    h2: {
-        fontStyle: "italic",
-        color: "blue"
+    {
+        id: Math.random(),
+        name: "test2",
+        isDone: false,
     }
-};
+];
 
-const initState = [
-    {id: Math.random(), title: ''},
-]
+const TodoListFunctional = () => {
+    const [todo, setTodo] = useState(initialValues);
+    const [name, setName] = useState('');
 
-function App() {
-    const [todos, setTodos] = useState(initState);
-    const [title, setTitle] = useState('');
+    const inputHandler = (e) => {
+        setName(e.target.value);
+    }
 
-    const addTodo = (e) => {
+    const addTodoHandler = (e) => {
         e.preventDefault();
-        const newTodo = {
+        let newTodo = {
             id: Math.random(),
-            title: title,
-        };
-        const newList = [...todos, newTodo]
-        setTodos(newList);
-        setTitle('');
-    }
+            name: name,
+        }
+        console.log(newTodo)
+        setTodo(
+            [...todo, newTodo]
+        )
+        setName('')
+    };
 
     return (
         <>
-            <div>
-                <input type="text"
-                       onChange={(event) => setTitle(event.target.value)}
-                       value={title}/>
-                <button className={styles.counterButton} onClick={addTodo}>Add</button>
-            </div>
-            <div>
-                {todos.map(el => <div key={el.id}>{el.title}</div>)}
-            </div>
+            <h2>Todo List</h2>
+            <form onSubmit={addTodoHandler}>
+                <input type="text" value={name} onChange={inputHandler}/>
+                <button className="add-button" type="submit"> Add ToDo</button>
+            </form>
 
+            <DisplayList todo={todo}/>
+
+            <style>{`
+                    .is-done {
+                        text-decoration: line-through;
+                    }
+                    
+                    .add-button {
+                         background-color: #cee4ff;
+                         color: darkblue;
+                         border: 1px solid darkblue;
+                    }
+                `}</style>
         </>
-    );
+    )
 }
 
-export default App;
+export default TodoListFunctional;
 
 
-// //import cx from 'classnames';
-// import React, {useState} from 'react';
+export const TrackProgress = () => {
+
+}
+
+export const DisplayList = ({todo}) => {
+    return (
+        <ul>
+            {
+                todo.map(el =>
+                    <li key={el.id}> {el.name} </li>)
+            }
+        </ul>
+    )
+}
+
+// export const Button = () => {
 //
-// const styles = {
+// }
+//
+// export const Input = () => {
+//
+// }
+
+
+// import React, {useState} from 'react';
+// //import classNames from 'classNames';
+//
+// export const styles = {
 //     counterButton: {
-//     fontSize: "1rem",
-//     padding: "5px 10px",
-//     color: "#585858",
-// },
+//         fontSize: "1rem",
+//         padding: "5px 10px",
+//         color: "585858",
+//         backgroundColor: "blue",
+//     },
 //     h2: {
 //         fontStyle: "italic",
 //         color: "blue"
 //     }
 // };
 //
+// const initState = [
+//     {id: Math.random(), title: ''},
+// ]
 //
-// function App() {
+// function TodoListFunctional() {
+//     const [todos, setTodos] = useState(initState);
+//     const [title, setTitle] = useState('');
 //
-//     const initCounter = [42];
-//     const [counter, setCounter] = useState(initCounter)
-//
-//         const counterChange = () => {
-//         let newCounter = +counter + 1;
-//             setCounter(newCounter);
-//         }
-//
-//         return (
-//             <>
-//                 <div>
-//                     <h2>Counter</h2>
-//                     <h2>{counter}</h2>
-//
-//                     <div className="buttons">
-//                         <button className={styles.myButton} onClick={counterChange}> +1</button>
-//                         <hr/>
-//                     </div>
-//                 </div>
-//             </>
-//         );
+//     const addTodo = (e) => {
+//         e.preventDefault();
+//         const newTodo = {
+//             id: Math.random(),
+//             title: title,
+//         };
+//         const newList = [...todos, newTodo]
+//         setTodos(newList);
+//         setTitle('');
 //     }
 //
-//     export default App;
+//     return (
+//         <>
+//             <div>
+//                 <input type="text"
+//                        onChange={(event) => setTitle(event.target.value)}
+//                        value={title}/>
+//                 <button className={styles.counterButton} onClick={addTodo}>Add</button>
+//             </div>
+//             <div>
+//                 {todos.map(el => <div key={el.id}>{el.title}</div>)}
+//             </div>
+//
+//         </>
+//     );
+// }
+//
+// export default TodoListFunctional;

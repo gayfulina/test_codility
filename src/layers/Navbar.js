@@ -12,7 +12,12 @@ const App = () => {
                 </li>
                 <li>
                     <NavLink className={classes.active} to='/todolist/functional'>
-                        ToDoList_functional
+                        ToDoListFunc
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink className={classes.active} to='/counter'>
+                        CounterFunc
                     </NavLink>
                 </li>
             </ul>

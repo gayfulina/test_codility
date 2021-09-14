@@ -3,6 +3,7 @@ import TodoList from "./codilityChalenge/TodoList";
 import TodoListFunctional from "./codilityChalenge/TodoListFunctional";
 import Welcome from "./layers/Welcome";
 import Layout from "./layers/Layout";
+import CounterFunctional from "./codilityChalenge/CounterFunctional";
 
 const App = () => {
     return (
@@ -16,6 +17,9 @@ const App = () => {
                 </Route>
                 <Route path='/todolist/functional'>
                     <TodoListFunctional/>
+                </Route>
+                <Route path='/counter'>
+                    <CounterFunctional/>
                 </Route>
             </Switch>
         </Layout>
