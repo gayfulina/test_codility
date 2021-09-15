@@ -19,6 +19,7 @@ const TodoListFunctional = () => {
 
     const inputHandler = (e) => {
         setName(e.target.value);
+        console.log(e.target.value)
     }
 
     const addTodoHandler = (e) => {
@@ -26,10 +27,12 @@ const TodoListFunctional = () => {
         let newTodo = {
             id: Math.random(),
             name: name,
+            isDone: false,
         }
         console.log(newTodo)
-        setTodo(
-            [...todo, newTodo]
+        setTodo( () => {
+               return [...todo, newTodo]
+            }
         )
         setName('')
     };
@@ -41,6 +44,8 @@ const TodoListFunctional = () => {
                 <input type="text" value={name} onChange={inputHandler}/>
                 <button className="add-button" type="submit"> Add ToDo</button>
             </form>
+
+            <TrackProgress todo={todo}/>
 
             <DisplayList todo={todo}/>
 
@@ -62,8 +67,10 @@ const TodoListFunctional = () => {
 export default TodoListFunctional;
 
 
-export const TrackProgress = () => {
+export const TrackProgress = ({todo}) => {
 
+    let result = todo.length;
+    return `remaining out of ${result} tasks`
 }
 
 export const DisplayList = ({todo}) => {
