@@ -14,7 +14,7 @@ const initialValues = [
 ];
 
 const TodoListFunctional = () => {
-    const [todo, setTodo] = useState(initialValues);
+    const [todos, setTodos] = useState(initialValues);
     const [name, setName] = useState('');
 
     const inputHandler = (e) => {
@@ -24,30 +24,37 @@ const TodoListFunctional = () => {
 
     const addTodoHandler = (e) => {
         e.preventDefault();
+        if (!name) return null;
+        //if(!name) return false;
         let newTodo = {
             id: Math.random(),
             name: name,
             isDone: false,
         }
         console.log(newTodo)
-        setTodo( () => {
-               return [...todo, newTodo]
+        setTodos(() => {
+                return [...todos, newTodo]
             }
         )
         setName('')
     };
 
+    const manageTodo = itemIndex => {
+
+
+    }
+
     return (
         <>
-            <h2>Todo List</h2>
+            <h2>Todos List</h2>
             <form onSubmit={addTodoHandler}>
                 <input type="text" value={name} onChange={inputHandler}/>
                 <button className="add-button" type="submit"> Add ToDo</button>
             </form>
 
-            <TrackProgress todo={todo}/>
+            <TrackProgress todos={todos}/>
 
-            <DisplayList todo={todo}/>
+            <DisplayList todos={todos}/>
 
             <style>{`
                     .is-done {
@@ -59,6 +66,9 @@ const TodoListFunctional = () => {
                          color: darkblue;
                          border: 1px solid darkblue;
                     }
+                    .task-counter{
+                    margin: auto, 1rem;
+                    }
                 `}</style>
         </>
     )
@@ -67,17 +77,21 @@ const TodoListFunctional = () => {
 export default TodoListFunctional;
 
 
-export const TrackProgress = ({todo}) => {
-
-    let result = todo.length;
-    return `remaining out of ${result} tasks`
+export const TrackProgress = ({todos}) => {
+    const result = todos.length;
+    const isNotDone = (todos.filter(el => el.isDone !== false)).length;
+    return (
+        <p className="task-counter">
+         {isNotDone} remaining out of {result} tasks
+        </p>
+    );
 }
 
-export const DisplayList = ({todo}) => {
+export const DisplayList = ({todos}) => {
     return (
         <ul>
             {
-                todo.map(el =>
+                todos.map(el =>
                     <li key={el.id}> {el.name} </li>)
             }
         </ul>
