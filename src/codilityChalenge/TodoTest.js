@@ -102,7 +102,7 @@ export const DisplayList = ({todos, doneUpdate}) => {
             <li
                 key={todo.id}
                 onClick={() => doneUpdate(todo.id)}
-                className={todo.isDone? "is-done" : "is-not-done"}
+                className={todo.isDone? "is-done" : null}
             >
                 {todo.text}
             </li>
