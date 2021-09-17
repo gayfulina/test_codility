@@ -1,6 +1,7 @@
 import {Route, Switch} from 'react-router-dom';
 import TodoList from "./codilityChalenge/TodoList";
-import TodoListFunctional from "./codilityChalenge/TodoListFunctional";
+import TodoTest from "./codilityChalenge/TodoTest";
+//import TodoListFunctional from "./codilityChalenge/TodoListFunctional";
 import Welcome from "./layers/Welcome";
 import Layout from "./layers/Layout";
 import CounterFunctional from "./codilityChalenge/CounterFunctional";
@@ -12,12 +13,19 @@ const App = () => {
                 <Route path='/' exact>
                     <Welcome/>
                 </Route>
+
                 <Route path='/todolist' exact>
                     <TodoList/>
                 </Route>
-                <Route path='/todolist/functional'>
-                    <TodoListFunctional/>
+
+                {/*<Route path='/todolist/functional'>*/}
+                {/*    <TodoListFunctional/>*/}
+                {/*</Route>*/}
+
+                <Route path='/todoTest' exact>
+                    <TodoTest/>
                 </Route>
+
                 <Route path='/counter'>
                     <CounterFunctional/>
                 </Route>

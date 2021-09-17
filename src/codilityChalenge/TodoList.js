@@ -13,6 +13,7 @@ export default class TodoList extends Component {
         this.setState({
             todoText: e.target.value
         });
+        console.log(e.target.value);
     };
 
     handleSubmit = e => {
@@ -81,6 +82,7 @@ const InputField = ({ value, handleOnChange }) => {
     return <input type="text" value={value} onChange={handleOnChange} />;
 };
 
+
 const TrackProgress = ({ todos }) => {
     const isNotDone = todos.filter(todo => todo.isDone !== true);
     return (
@@ -89,6 +91,7 @@ const TrackProgress = ({ todos }) => {
         </p>
     );
 };
+
 
 const DisplayList = ({ todos, manage }) => {
     return (

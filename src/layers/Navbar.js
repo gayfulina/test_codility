@@ -10,11 +10,19 @@ const App = () => {
                         ToDoList
                     </NavLink>
                 </li>
+
+                {/*<li>*/}
+                {/*    <NavLink className={classes.active} to='/todolist/functional'>*/}
+                {/*        ToDoListFunc*/}
+                {/*    </NavLink>*/}
+                {/*</li>*/}
+
                 <li>
-                    <NavLink className={classes.active} to='/todolist/functional'>
-                        ToDoListFunc
+                    <NavLink className={classes.active} to='/todoTest'>
+                        TodoTest
                     </NavLink>
                 </li>
+
                 <li>
                     <NavLink className={classes.active} to='/counter'>
                         CounterFunc
