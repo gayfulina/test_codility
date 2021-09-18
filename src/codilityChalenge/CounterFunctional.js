@@ -17,13 +17,18 @@ const CounterFunctional = () => {
             <Button addButtonHandler={addButtonHandler}>Add</Button>
 
             <style>{`
-            .title {
+           .title {
               text-align: center;
             }
-            .counter-button {
-             font: 1rem;
-             padding: 5px 10px;
-             background-color: #cee4ff;
+           .counter-button {
+            font-size: 1rem;
+            padding: 5px 50px;
+            background-color: #cee4ff;
+            position: absolute;
+            left: 40%;
+            }
+             .result {
+              text-align: center;
              }
                 `}</style>
         </>
@@ -49,7 +54,7 @@ export const Button = ({children, addButtonHandler}) => {
 
 export const Result = ({children}) => {
     return (
-        <p>
+        <p className="result">
             {children}
         </p>
     )

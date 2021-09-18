@@ -5,6 +5,7 @@ import TodoTest from "./codilityChalenge/TodoTest";
 import Welcome from "./layers/Welcome";
 import Layout from "./layers/Layout";
 import CounterFunctional from "./codilityChalenge/CounterFunctional";
+import AutoComplete from "./codilityChalenge/AutoComplete";
 
 const App = () => {
     return (
@@ -28,6 +29,10 @@ const App = () => {
 
                 <Route path='/counter'>
                     <CounterFunctional/>
+                </Route>
+
+                <Route path='/autocomplete'>
+                    <AutoComplete/>
                 </Route>
             </Switch>
         </Layout>

@@ -28,6 +28,12 @@ const App = () => {
                         CounterFunc
                     </NavLink>
                 </li>
+
+                <li>
+                    <NavLink className={classes.active} to='/autocomplete'>
+                        AutoComplete
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     )
