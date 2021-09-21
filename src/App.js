@@ -6,6 +6,7 @@ import Welcome from "./layers/Welcome";
 import Layout from "./layers/Layout";
 import CounterFunctional from "./codilityChalenge/CounterFunctional";
 import AutoComplete from "./codilityChalenge/AutoComplete";
+import SimpleCounter from "./codilityChalenge/SimpleCounter";
 
 const App = () => {
     return (
@@ -29,6 +30,10 @@ const App = () => {
 
                 <Route path='/counter'>
                     <CounterFunctional/>
+                </Route>
+
+                <Route path='/simplecounter'>
+                    <SimpleCounter/>
                 </Route>
 
                 <Route path='/autocomplete'>

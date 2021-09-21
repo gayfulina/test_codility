@@ -30,6 +30,12 @@ const App = () => {
                 </li>
 
                 <li>
+                    <NavLink className={classes.active} to='/simplecounter'>
+                        SimpleCounter
+                    </NavLink>
+                </li>
+
+                <li>
                     <NavLink className={classes.active} to='/autocomplete'>
                         AutoComplete
                     </NavLink>
